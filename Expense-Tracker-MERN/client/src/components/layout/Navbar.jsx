@@ -2,7 +2,13 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import Button from '../ui/Button';
 
-const navItems = ['Home', 'About', 'Services', 'Tools', 'Blog', 'Testimonials'];
+const navItems = [
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Services', href: '#services' },
+  { label: 'Tools', href: '#tools' },
+  { label: 'Blog', href: '#blog' },
+];
 
 export default function Navbar() {
   return (
@@ -22,17 +28,19 @@ export default function Navbar() {
 
         <nav className="hidden flex-1 items-center justify-center gap-8 text-sm font-medium text-slate-600 md:flex">
           {navItems.map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="transition-colors duration-200 hover:text-slate-950">
-              {item}
+            <a key={item.label} href={item.href} className="transition-colors duration-200 hover:text-slate-950">
+              {item.label}
             </a>
           ))}
         </nav>
 
         <div className="ml-auto">
-          <Button type="button" className="whitespace-nowrap px-6 py-3 text-sm font-semibold">
-            Get Started
-            <ArrowRight size={16} />
-          </Button>
+          <a href="/register">
+            <Button type="button" className="whitespace-nowrap px-6 py-3 text-sm font-semibold">
+              Get Started
+              <ArrowRight size={16} />
+            </Button>
+          </a>
         </div>
       </div>
     </motion.header>

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
   return (
     <footer className="mx-auto w-full max-w-7xl px-6 pb-12 pt-10 md:px-8">
@@ -7,9 +9,9 @@ export default function Footer() {
             <p className="text-sm uppercase tracking-[0.32em] text-slate-400">Ready to get started?</p>
             <p className="mt-3 text-2xl font-semibold text-slate-950">Build smarter financial habits with TruePath.</p>
           </div>
-          <button type="button" className="inline-flex items-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-xl shadow-slate-950/15 hover:bg-slate-900">
+          <Link to="/register" className="inline-flex items-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-xl shadow-slate-950/15 hover:bg-slate-900">
             Start free trial
-          </button>
+          </Link>
         </div>
       </div>
     </footer>

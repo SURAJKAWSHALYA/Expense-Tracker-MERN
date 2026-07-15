@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck, CreditCard, Sparkles } from 'lucide-react';
 import Button from '../ui/Button';
@@ -27,10 +28,15 @@ export default function Hero() {
         </div>
 
         <div className="flex flex-wrap items-center gap-4">
-          <Button type="button" className="rounded-full">Download Apps</Button>
-          <Button type="button" variant="outline" className="rounded-full text-slate-900">
+          <Link to="/login" className="rounded-full">
+            <Button type="button" className="rounded-full">Download Apps</Button>
+          </Link>
+          <Link
+            to="/login"
+            className="inline-flex items-center justify-center rounded-full border border-slate-300/80 bg-white/80 px-6 py-3 text-base font-semibold text-slate-900 transition hover:border-slate-950 hover:bg-slate-100"
+          >
             Explore our services
-          </Button>
+          </Link>
         </div>
 
         <div className="rounded-[28px] border border-slate-200/80 bg-white/80 p-6 shadow-[0_26px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl">

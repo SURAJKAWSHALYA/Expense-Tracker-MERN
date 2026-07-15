@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import Button from '../ui/Button';
@@ -35,12 +36,12 @@ export default function Navbar() {
         </nav>
 
         <div className="ml-auto">
-          <a href="/register">
+          <Link to="/register">
             <Button type="button" className="whitespace-nowrap px-6 py-3 text-sm font-semibold">
               Get Started
               <ArrowRight size={16} />
             </Button>
-          </a>
+          </Link>
         </div>
       </div>
     </motion.header>

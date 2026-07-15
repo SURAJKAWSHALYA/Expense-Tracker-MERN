@@ -31,12 +31,12 @@ export default function Hero() {
           <Link to="/login" className="rounded-full">
             <Button type="button" className="rounded-full">Download Apps</Button>
           </Link>
-          <Link
-            to="/login"
+          <a
+            href="#services"
             className="inline-flex items-center justify-center rounded-full border border-slate-300/80 bg-white/80 px-6 py-3 text-base font-semibold text-slate-900 transition hover:border-slate-950 hover:bg-slate-100"
           >
             Explore our services
-          </Link>
+          </a>
         </div>
 
         <div className="rounded-[28px] border border-slate-200/80 bg-white/80 p-6 shadow-[0_26px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl">

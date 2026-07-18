@@ -9,7 +9,7 @@ const testimonials = [
     avatarBg: 'from-pink-400 to-rose-500',
     rating: 5,
     quote:
-      'TruePath completely changed how I manage irregular income. I finally feel in control of my finances — and my savings have grown 40% in three months.',
+      'CoinKeeper LK completely changed how I manage irregular income. I finally feel in control of my finances — and my savings have grown 40% in three months.',
   },
   {
     name: 'Marcus Williams',
@@ -18,7 +18,7 @@ const testimonials = [
     avatarBg: 'from-indigo-400 to-violet-500',
     rating: 5,
     quote:
-      "We use TruePath across our entire team to track expenses and manage cash flow. It's the most intuitive finance tool we've ever used. Absolutely love it.",
+      "We use CoinKeeper LK across our entire team to track expenses and manage cash flow. It's the most intuitive finance tool we've ever used. Absolutely love it.",
   },
   {
     name: 'Priya Patel',
@@ -27,7 +27,7 @@ const testimonials = [
     avatarBg: 'from-emerald-400 to-teal-500',
     rating: 5,
     quote:
-      "The budget alerts and visual breakdowns helped me pay off my student loan two years early. TruePath is the finance app I didn't know I needed.",
+      "The budget alerts and visual breakdowns helped me pay off my student loan two years early. CoinKeeper LK is the finance app I didn't know I needed.",
   },
 ];
 
@@ -52,12 +52,12 @@ export default function Testimonials() {
       className="mx-auto w-full max-w-7xl px-6 pb-24 md:px-8"
     >
       <motion.div variants={cardVariants} className="mb-14 text-center">
-        <p className="text-sm uppercase tracking-[0.26em] text-indigo-600">Loved by users</p>
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+        <p className="text-sm uppercase tracking-[0.26em] text-yellow-400">Loved by users</p>
+        <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
           Real stories, real results
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-slate-600">
-          Join over 500,000 people who've taken control of their money with TruePath.
+        <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-slate-300">
+          Join over 500,000 people who've taken control of their money with CoinKeeper LK.
         </p>
       </motion.div>
 
@@ -67,17 +67,17 @@ export default function Testimonials() {
             key={t.name}
             variants={cardVariants}
             whileHover={{ y: -6, transition: { duration: 0.25 } }}
-            className="flex flex-col gap-6 rounded-[28px] border border-white/80 bg-white/90 p-8 shadow-[0_24px_60px_rgba(15,23,42,0.08)] backdrop-blur-sm"
+            className="flex flex-col gap-6 rounded-[28px] border border-white/10 bg-slate-900/40 p-8 shadow-2xl backdrop-blur-md"
           >
             {/* Stars */}
             <div className="flex gap-0.5">
               {Array.from({ length: t.rating }).map((_, i) => (
-                <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
+                <Star key={i} size={14} className="fill-yellow-400 text-yellow-400" />
               ))}
             </div>
 
             {/* Quote */}
-            <blockquote className="flex-1 text-base leading-7 text-slate-700">
+            <blockquote className="flex-1 text-base leading-7 text-slate-300">
               &ldquo;{t.quote}&rdquo;
             </blockquote>
 
@@ -87,8 +87,8 @@ export default function Testimonials() {
                 {t.avatar}
               </div>
               <div>
-                <p className="text-sm font-semibold text-slate-950">{t.name}</p>
-                <p className="text-xs text-slate-500">{t.role}</p>
+                <p className="text-sm font-semibold text-white">{t.name}</p>
+                <p className="text-xs text-slate-400">{t.role}</p>
               </div>
             </div>
           </motion.div>

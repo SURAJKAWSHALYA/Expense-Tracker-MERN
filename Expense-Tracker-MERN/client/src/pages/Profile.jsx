@@ -7,7 +7,7 @@ function Profile() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-3xl font-semibold text-slate-950">Profile</h1>
-            <p className="mt-2 text-slate-600">Manage your account information and settings.</p>
+            <p className="mt-2 text-slate-700">Manage your account information and settings.</p>
           </div>
           <Link to="/" className="inline-flex items-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-900">
             Back to home
@@ -15,11 +15,11 @@ function Profile() {
         </div>
         <div className="mt-10 space-y-6">
           <div className="rounded-[28px] border border-slate-200 bg-slate-50 p-6">
-            <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Account</p>
+            <p className="text-sm uppercase tracking-[0.24em] text-slate-600">Account</p>
             <p className="mt-2 text-base text-slate-700">Username: <span className="font-semibold">jordan.osas</span></p>
           </div>
           <div className="rounded-[28px] border border-slate-200 bg-slate-50 p-6">
-            <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Email</p>
+            <p className="text-sm uppercase tracking-[0.24em] text-slate-600">Email</p>
             <p className="mt-2 text-base text-slate-700">you@example.com</p>
           </div>
         </div>

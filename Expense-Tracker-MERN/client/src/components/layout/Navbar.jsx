@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Menu, X } from 'lucide-react';
+import { Sparkles, Menu, X, Sun, Moon } from 'lucide-react';
 import Button from '../ui/Button';
+import { useTheme } from '../../context/ThemeContext';
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -15,6 +16,7 @@ const navItems = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -30,33 +32,40 @@ export default function Navbar() {
         transition={{ duration: 0.65, ease: 'easeOut' }}
         className={`sticky top-4 z-30 mx-auto w-[min(1120px,calc(100%-1.5rem))] rounded-full border px-6 py-3 backdrop-blur-xl transition-all duration-300 ${
           scrolled
-            ? 'border-white/10 bg-slate-900/80 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
-            : 'border-white/5 bg-transparent'
+            ? 'border-indigo-100/50 bg-white/80 dark:border-white/10 dark:bg-slate-900/80 shadow-[0_8px_32px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
+            : 'border-indigo-50 bg-white/50 dark:border-white/5 dark:bg-transparent'
         }`}
       >
         <div className="flex items-center gap-6">
           {/* Logo */}
-          <div className="flex items-center gap-3 text-white">
-            <Sparkles size={20} className="text-yellow-400" />
+          <div className="flex items-center gap-3 text-slate-950 dark:text-white transition-colors">
+            <Sparkles size={20} className="text-indigo-600 dark:text-yellow-400" />
             <span className="text-lg font-bold tracking-tight">CoinKeeper LK</span>
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden flex-1 items-center justify-center gap-8 text-sm font-medium text-slate-300 md:flex">
+          <nav className="hidden flex-1 items-center justify-center gap-8 text-sm font-medium text-slate-700 dark:text-slate-300 md:flex">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="relative transition-colors duration-200 hover:text-white after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full"
+                className="relative transition-colors duration-200 hover:text-indigo-600 dark:hover:text-white after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-indigo-600 dark:after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full"
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="ml-auto hidden items-center gap-3 md:flex">
-            <Link to="/login" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+          {/* Controls */}
+          <div className="ml-auto hidden items-center gap-4 md:flex">
+            <button
+              onClick={toggleTheme}
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-white/5 dark:text-slate-300 dark:hover:bg-white/10 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+            <Link to="/login" className="text-sm font-medium text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-white transition-colors">
               Sign in
             </Link>
             <Link to="/register">
@@ -66,16 +75,24 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Hamburger */}
-          <button
-            id="navbar-mobile-toggle"
-            type="button"
-            className="ml-auto flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:bg-white/10 hover:text-white md:hidden"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
+          {/* Mobile Actions */}
+          <div className="ml-auto flex items-center gap-2 md:hidden">
+            <button
+              onClick={toggleTheme}
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-700 dark:bg-white/5 dark:text-slate-300 transition-colors"
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+            <button
+              id="navbar-mobile-toggle"
+              type="button"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 transition-colors"
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
         </div>
       </motion.header>
 
@@ -87,7 +104,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-x-4 top-20 z-20 rounded-[28px] border border-white/10 bg-slate-900/95 p-6 shadow-[0_32px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl md:hidden"
+            className="fixed inset-x-4 top-20 z-20 rounded-[28px] border border-slate-200 bg-white p-6 shadow-xl dark:border-white/10 dark:bg-slate-900/95 dark:shadow-[0_32px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl md:hidden"
           >
             <nav className="flex flex-col gap-1">
               {navItems.map((item) => (
@@ -95,14 +112,14 @@ export default function Navbar() {
                   key={item.label}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-2xl px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-white/5 hover:text-white"
+                  className="rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600 dark:text-slate-300 dark:hover:bg-white/5 dark:hover:text-white transition-colors"
                 >
                   {item.label}
                 </a>
               ))}
             </nav>
-            <div className="mt-5 flex flex-col gap-3 border-t border-white/10 pt-5">
-              <Link to="/login" onClick={() => setMobileOpen(false)} className="text-center text-sm font-medium text-slate-300 hover:text-white">
+            <div className="mt-5 flex flex-col gap-3 border-t border-slate-100 dark:border-white/10 pt-5">
+              <Link to="/login" onClick={() => setMobileOpen(false)} className="text-center text-sm font-medium text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-white transition-colors">
                 Sign in
               </Link>
               <Link to="/register" onClick={() => setMobileOpen(false)}>

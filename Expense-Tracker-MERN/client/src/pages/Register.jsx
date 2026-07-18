@@ -16,46 +16,31 @@ export default function Register() {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
-  // Simple password strength hint
   const getPasswordStrength = (password) => {
     if (!password) return null;
-    if (password.length < 6) return { text: 'Weak', color: 'text-red-400' };
+    if (password.length < 6) return { text: 'Weak', color: 'text-red-500 dark:text-red-400' };
     if (password.length >= 8 && /[A-Z]/.test(password) && /[0-9]/.test(password)) {
-      return { text: 'Strong', color: 'text-emerald-400' };
+      return { text: 'Strong', color: 'text-emerald-500 dark:text-emerald-400' };
     }
-    return { text: 'Good', color: 'text-amber-400' };
+    return { text: 'Good', color: 'text-amber-500 dark:text-amber-400' };
   };
 
   const strength = getPasswordStrength(formData.password);
 
   const validate = () => {
     const newErrors = {};
-    
-    if (!formData.name) {
-      newErrors.name = 'Name is required';
-    } else if (formData.name.trim().length < 2) {
-      newErrors.name = 'Name must be at least 2 characters';
-    }
+    if (!formData.name) newErrors.name = 'Name is required';
+    else if (formData.name.trim().length < 2) newErrors.name = 'Name must be at least 2 characters';
 
-    if (!formData.email) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
-    }
+    if (!formData.email) newErrors.email = 'Email is required';
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Please enter a valid email';
     
-    if (!formData.password) {
-      newErrors.password = 'Password is required';
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
-    }
+    if (!formData.password) newErrors.password = 'Password is required';
+    else if (formData.password.length < 6) newErrors.password = 'Password must be at least 6 characters';
     
-    if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
-    }
+    if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = 'Passwords do not match';
     
-    if (!formData.termsAccepted) {
-      newErrors.termsAccepted = 'You must accept the terms and conditions';
-    }
+    if (!formData.termsAccepted) newErrors.termsAccepted = 'You must accept the terms and conditions';
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -67,19 +52,13 @@ export default function Register() {
       ...prev, 
       [name]: type === 'checkbox' ? checked : value 
     }));
-    
-    // Clear error when user starts typing/interacting
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: null }));
-    }
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: null }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     if (validate()) {
       setLoading(true);
-      // Simulate API call
       setTimeout(() => {
         console.log('Register Form Data:', formData);
         setLoading(false);
@@ -127,7 +106,7 @@ export default function Register() {
             autoComplete="new-password"
           />
           {strength && !errors.password && (
-            <p className="mt-1.5 text-xs text-slate-400">
+            <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400">
               Password strength:{' '}
               <span className={`font-medium ${strength.color}`}>
                 {strength.text}
@@ -154,17 +133,17 @@ export default function Register() {
               name="termsAccepted"
               checked={formData.termsAccepted}
               onChange={handleChange}
-              className="mt-1 rounded border-white/20 bg-slate-900/50 text-yellow-400 focus:ring-yellow-400/20"
+              className="mt-1 rounded border-slate-300 dark:border-white/20 bg-slate-50 dark:bg-slate-900/50 text-indigo-600 dark:text-yellow-400 focus:ring-indigo-600/20 dark:focus:ring-yellow-400/20"
             />
-            <span className="text-sm text-slate-400">
+            <span className="text-sm text-slate-700 dark:text-slate-400 transition-colors">
               I agree to the{' '}
-              <a href="#" className="font-medium text-yellow-400 hover:text-yellow-300">Terms of Service</a>
+              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-700 dark:text-yellow-400 dark:hover:text-yellow-300">Terms of Service</a>
               {' '}and{' '}
-              <a href="#" className="font-medium text-yellow-400 hover:text-yellow-300">Privacy Policy</a>
+              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-700 dark:text-yellow-400 dark:hover:text-yellow-300">Privacy Policy</a>
             </span>
           </label>
           {errors.termsAccepted && (
-            <p className="text-xs text-red-400">{errors.termsAccepted}</p>
+            <p className="text-xs text-red-500 dark:text-red-400">{errors.termsAccepted}</p>
           )}
         </div>
 
@@ -178,11 +157,11 @@ export default function Register() {
         </Button>
       </form>
 
-      <p className="mt-8 text-center text-sm text-slate-400">
+      <p className="mt-8 text-center text-sm text-slate-700 dark:text-slate-400 transition-colors">
         Already have an account?{' '}
         <Link 
           to="/login" 
-          className="font-semibold text-yellow-400 hover:text-yellow-300 transition-colors"
+          className="font-semibold text-indigo-600 hover:text-indigo-700 dark:text-yellow-400 dark:hover:text-yellow-300 transition-colors"
         >
           Sign in instead
         </Link>

@@ -52,11 +52,11 @@ export default function Testimonials() {
       className="mx-auto w-full max-w-7xl px-6 pb-24 md:px-8"
     >
       <motion.div variants={cardVariants} className="mb-14 text-center">
-        <p className="text-sm uppercase tracking-[0.26em] text-yellow-400">Loved by users</p>
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+        <p className="text-sm uppercase tracking-[0.26em] text-indigo-600 dark:text-yellow-400 transition-colors">Loved by users</p>
+        <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-4xl transition-colors">
           Real stories, real results
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-slate-300">
+        <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-slate-700 dark:text-slate-300 transition-colors">
           Join over 500,000 people who've taken control of their money with CoinKeeper LK.
         </p>
       </motion.div>
@@ -67,28 +67,25 @@ export default function Testimonials() {
             key={t.name}
             variants={cardVariants}
             whileHover={{ y: -6, transition: { duration: 0.25 } }}
-            className="flex flex-col gap-6 rounded-[28px] border border-white/10 bg-slate-900/40 p-8 shadow-2xl backdrop-blur-md"
+            className="flex flex-col gap-6 rounded-[28px] border border-white/80 dark:border-white/10 bg-white/90 dark:bg-slate-900/40 p-8 shadow-[0_24px_60px_rgba(15,23,42,0.08)] dark:shadow-2xl backdrop-blur-md transition-colors duration-300"
           >
-            {/* Stars */}
             <div className="flex gap-0.5">
               {Array.from({ length: t.rating }).map((_, i) => (
-                <Star key={i} size={14} className="fill-yellow-400 text-yellow-400" />
+                <Star key={i} size={14} className="fill-indigo-400 text-indigo-400 dark:fill-yellow-400 dark:text-yellow-400 transition-colors" />
               ))}
             </div>
 
-            {/* Quote */}
-            <blockquote className="flex-1 text-base leading-7 text-slate-300">
+            <blockquote className="flex-1 text-base leading-7 text-slate-700 dark:text-slate-300 transition-colors">
               &ldquo;{t.quote}&rdquo;
             </blockquote>
 
-            {/* Author */}
             <div className="flex items-center gap-3">
-              <div className={`flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br ${t.avatarBg} text-sm font-semibold text-white shadow-md`}>
+              <div className={`flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br ${t.avatarBg} text-sm font-semibold text-white shadow-md transition-colors`}>
                 {t.avatar}
               </div>
               <div>
-                <p className="text-sm font-semibold text-white">{t.name}</p>
-                <p className="text-xs text-slate-400">{t.role}</p>
+                <p className="text-sm font-semibold text-slate-950 dark:text-white transition-colors">{t.name}</p>
+                <p className="text-xs text-slate-600 dark:text-slate-400 transition-colors">{t.role}</p>
               </div>
             </div>
           </motion.div>

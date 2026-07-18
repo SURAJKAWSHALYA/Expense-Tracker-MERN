@@ -34,7 +34,6 @@ export default function Login() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: null }));
     }
@@ -45,7 +44,6 @@ export default function Login() {
     
     if (validate()) {
       setLoading(true);
-      // Simulate API call
       setTimeout(() => {
         console.log('Login Form Data:', formData);
         setLoading(false);
@@ -85,11 +83,11 @@ export default function Login() {
             <label className="flex items-center gap-2 cursor-pointer">
               <input 
                 type="checkbox" 
-                className="rounded border-white/20 bg-slate-900/50 text-yellow-400 focus:ring-yellow-400/20"
+                className="rounded border-slate-300 dark:border-white/20 bg-slate-50 dark:bg-slate-900/50 text-indigo-600 dark:text-yellow-400 focus:ring-indigo-600/20 dark:focus:ring-yellow-400/20"
               />
-              <span className="text-slate-400">Remember me</span>
+              <span className="text-slate-700 dark:text-slate-400 transition-colors">Remember me</span>
             </label>
-            <a href="#" className="font-medium text-yellow-400 hover:text-yellow-300 transition-colors">
+            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-700 dark:text-yellow-400 dark:hover:text-yellow-300 transition-colors">
               Forgot password?
             </a>
           </div>
@@ -105,11 +103,11 @@ export default function Login() {
         </Button>
       </form>
 
-      <p className="mt-8 text-center text-sm text-slate-400">
+      <p className="mt-8 text-center text-sm text-slate-700 dark:text-slate-400 transition-colors">
         Don't have an account?{' '}
         <Link 
           to="/register" 
-          className="font-semibold text-yellow-400 hover:text-yellow-300 transition-colors"
+          className="font-semibold text-indigo-600 hover:text-indigo-700 dark:text-yellow-400 dark:hover:text-yellow-300 transition-colors"
         >
           Sign up for free
         </Link>

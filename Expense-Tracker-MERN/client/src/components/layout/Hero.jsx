@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Sparkles, Activity, FileText } from 'lucide-react';
 import Button from '../ui/Button';
-import Badge from '../ui/Badge';
-import { useEffect } from 'react';
 
 export default function Hero() {
   const floatAnimation1 = {
@@ -36,20 +34,20 @@ export default function Hero() {
         transition={{ duration: 0.7, ease: 'easeOut' }}
         className="flex max-w-2xl flex-col gap-8 relative z-10"
       >
-        <div className="flex items-center gap-3 text-white mb-2">
-          <Sparkles size={28} className="text-yellow-400" />
+        <div className="flex items-center gap-3 text-slate-950 dark:text-white mb-2 transition-colors">
+          <Sparkles size={28} className="text-indigo-600 dark:text-yellow-400" />
           <span className="text-2xl font-bold tracking-tight">CoinKeeper LK</span>
         </div>
 
         <div className="space-y-5">
-          <h1 className="max-w-[14ch] text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-[4.2rem] leading-[1.1]">
+          <h1 className="max-w-[14ch] text-5xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-6xl lg:text-[4.2rem] leading-[1.1] transition-colors">
             Take Control of Your{' '}
-            <span className="bg-gradient-to-r from-fuchsia-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-sm">
+            <span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-fuchsia-400 dark:to-cyan-400 bg-clip-text text-transparent drop-shadow-sm">
               Financial Future
             </span>
             <br />with CoinKeeper LK
           </h1>
-          <p className="max-w-xl text-lg leading-8 text-slate-300">
+          <p className="max-w-xl text-lg leading-8 text-slate-700 dark:text-slate-300 transition-colors">
             Track, budget, and manage all your accounts from one elegant dashboard - built for financial clarity in Sri Lanka.
           </p>
         </div>
@@ -71,87 +69,87 @@ export default function Hero() {
         transition={{ duration: 1, delay: 0.2 }}
         className="relative mx-auto w-full max-w-md lg:max-w-[500px] h-[500px] flex items-center justify-center z-10"
       >
-        {/* Intense center glow simulating the phone screen background */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[300px] h-[400px] bg-fuchsia-600/30 blur-[80px] rounded-full mix-blend-screen animate-pulse" />
-          <div className="absolute w-[200px] h-[300px] bg-cyan-500/30 blur-[60px] rounded-full mix-blend-screen translate-x-12 translate-y-12" />
+        {/* Glows */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-[300px] h-[400px] bg-indigo-200/50 dark:bg-fuchsia-600/30 blur-[80px] rounded-full dark:mix-blend-screen animate-pulse" />
+          <div className="absolute w-[200px] h-[300px] bg-purple-200/50 dark:bg-cyan-500/30 blur-[60px] rounded-full dark:mix-blend-screen translate-x-12 translate-y-12" />
         </div>
 
-        {/* Card 1: Total Balance (Center) */}
+        {/* Card 1: Total Balance */}
         <motion.div
           animate={floatAnimation1}
-          className="absolute z-30 w-72 rounded-[24px] border border-white/10 bg-slate-900/60 p-6 shadow-2xl backdrop-blur-md"
+          className="absolute z-30 w-72 rounded-[24px] border border-white/80 dark:border-white/10 bg-white/90 dark:bg-slate-900/60 p-6 shadow-2xl dark:shadow-2xl backdrop-blur-md transition-colors"
           style={{ transform: 'rotate(-4deg)' }}
         >
-          <p className="text-sm font-medium text-amber-500/90 tracking-wide">Total Balance</p>
-          <p className="mt-2 text-3xl font-bold text-white tracking-tight">1,125,000 <span className="text-lg text-slate-400 font-normal">LKR</span></p>
+          <p className="text-sm font-medium text-slate-600 dark:text-amber-500/90 tracking-wide">Total Balance</p>
+          <p className="mt-2 text-3xl font-bold text-slate-950 dark:text-white tracking-tight">1,125,000 <span className="text-lg text-slate-500 dark:text-slate-400 font-normal">LKR</span></p>
           <div className="mt-5 flex gap-3">
-            <button className="flex-1 flex justify-center items-center rounded-xl bg-white/10 py-2.5 text-slate-300 hover:bg-white/20 transition border border-white/5">
+            <button className="flex-1 flex justify-center items-center rounded-xl bg-slate-100 dark:bg-white/10 py-2.5 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/20 transition border border-transparent dark:border-white/5">
               <Activity size={18} />
             </button>
-            <button className="flex-1 flex justify-center items-center rounded-xl bg-white/10 py-2.5 text-slate-300 hover:bg-white/20 transition border border-white/5">
+            <button className="flex-1 flex justify-center items-center rounded-xl bg-slate-100 dark:bg-white/10 py-2.5 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/20 transition border border-transparent dark:border-white/5">
               <FileText size={18} />
             </button>
           </div>
         </motion.div>
 
-        {/* Card 2: Accounts (Top Left) */}
+        {/* Card 2: Accounts */}
         <motion.div
           animate={floatAnimation2}
-          className="absolute left-0 top-10 z-20 w-64 -translate-x-12 -translate-y-8 rounded-[20px] border border-white/10 bg-slate-800/80 p-5 shadow-2xl backdrop-blur-xl"
+          className="absolute left-0 top-10 z-20 w-64 -translate-x-12 -translate-y-8 rounded-[20px] border border-white/80 dark:border-white/10 bg-white/95 dark:bg-slate-800/80 p-5 shadow-2xl backdrop-blur-xl transition-colors"
           style={{ transform: 'rotate(-12deg) scale(0.9)' }}
         >
           <div className="flex justify-between items-center mb-4">
-            <p className="text-xs font-semibold text-white">Accounts</p>
-            <span className="text-[10px] text-cyan-400">+ Add Account</span>
+            <p className="text-xs font-semibold text-slate-950 dark:text-white">Accounts</p>
+            <span className="text-[10px] text-indigo-600 dark:text-cyan-400">+ Add Account</span>
           </div>
           <div className="space-y-3">
-            <div className="flex justify-between items-end border-b border-white/10 pb-3">
+            <div className="flex justify-between items-end border-b border-slate-100 dark:border-white/10 pb-3">
               <div>
-                <p className="text-xs text-white">Commercial Bank</p>
-                <p className="text-[10px] text-slate-400">LKR - 40285</p>
+                <p className="text-xs text-slate-950 dark:text-white">Commercial Bank</p>
+                <p className="text-[10px] text-slate-600 dark:text-slate-400">LKR - 40285</p>
               </div>
-              <p className="text-sm font-semibold text-white">72,839.00</p>
+              <p className="text-sm font-semibold text-slate-950 dark:text-white">72,839.00</p>
             </div>
             <div className="flex justify-between items-end">
               <div>
-                <p className="text-xs text-white">HNB</p>
-                <p className="text-[10px] text-slate-400">LKR - 0024</p>
+                <p className="text-xs text-slate-950 dark:text-white">HNB</p>
+                <p className="text-[10px] text-slate-600 dark:text-slate-400">LKR - 0024</p>
               </div>
-              <p className="text-sm font-semibold text-white">15,235.50</p>
+              <p className="text-sm font-semibold text-slate-950 dark:text-white">15,235.50</p>
             </div>
           </div>
         </motion.div>
 
-        {/* Card 3: Company Balance (Bottom Right) */}
+        {/* Card 3: Company Balance */}
         <motion.div
           animate={floatAnimation3}
-          className="absolute right-0 bottom-10 z-20 w-64 translate-x-12 translate-y-12 rounded-[20px] border border-white/10 bg-slate-900/80 p-5 shadow-2xl backdrop-blur-xl"
+          className="absolute right-0 bottom-10 z-20 w-64 translate-x-12 translate-y-12 rounded-[20px] border border-white/80 dark:border-white/10 bg-white/95 dark:bg-slate-900/80 p-5 shadow-2xl backdrop-blur-xl transition-colors"
           style={{ transform: 'rotate(8deg)' }}
         >
-          <p className="text-sm font-medium text-pink-400/90 tracking-wide">Company Balance</p>
-          <p className="mt-2 text-2xl font-bold text-white tracking-tight">750,000 <span className="text-sm text-slate-400 font-normal">LKR</span></p>
+          <p className="text-sm font-medium text-slate-600 dark:text-pink-400/90 tracking-wide">Company Balance</p>
+          <p className="mt-2 text-2xl font-bold text-slate-950 dark:text-white tracking-tight">750,000 <span className="text-sm text-slate-500 dark:text-slate-400 font-normal">LKR</span></p>
           <div className="mt-4 flex gap-2">
-            <button className="flex-1 flex justify-center items-center rounded-xl bg-white/5 py-2 text-slate-300 hover:bg-white/10 transition">
+            <button className="flex-1 flex justify-center items-center rounded-xl bg-slate-100 dark:bg-white/5 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/10 transition">
               <Activity size={16} />
             </button>
-            <button className="flex-1 flex justify-center items-center rounded-xl bg-white/5 py-2 text-slate-300 hover:bg-white/10 transition">
+            <button className="flex-1 flex justify-center items-center rounded-xl bg-slate-100 dark:bg-white/5 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/10 transition">
               <FileText size={16} />
             </button>
           </div>
         </motion.div>
         
-        {/* Faded Background Element (List of transactions) */}
+        {/* Faded Background Element */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.6 }}
-          className="absolute bottom-4 left-1/2 -translate-x-1/2 z-0 w-60 rounded-[20px] bg-white/5 p-4 backdrop-blur-sm border border-white/5"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 z-0 w-60 rounded-[20px] bg-slate-200/50 dark:bg-white/5 p-4 backdrop-blur-sm border border-white/50 dark:border-white/5 transition-colors"
           style={{ transform: 'rotate(-15deg) scale(0.85) translate(-20px, 40px)' }}
         >
            <div className="space-y-2 opacity-50">
-             <div className="h-6 w-full rounded-md bg-white/10"></div>
-             <div className="h-6 w-full rounded-md bg-white/10"></div>
-             <div className="h-6 w-3/4 rounded-md bg-white/10"></div>
+             <div className="h-6 w-full rounded-md bg-white dark:bg-white/10"></div>
+             <div className="h-6 w-full rounded-md bg-white dark:bg-white/10"></div>
+             <div className="h-6 w-3/4 rounded-md bg-white dark:bg-white/10"></div>
            </div>
         </motion.div>
       </motion.div>

@@ -85,7 +85,7 @@ export default function Pricing() {
           Start free, upgrade when you need more. No hidden fees, cancel anytime.
         </p>
 
-        <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-slate-200/80 dark:border-white/10 bg-white/80 dark:bg-slate-900/60 p-1 px-2 shadow-sm backdrop-blur-md transition-colors">
+        <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-indigo-200 dark:border-white/10 bg-indigo-50/60 dark:bg-slate-900/60 p-1 px-2 shadow-sm backdrop-blur-md transition-colors">
           <button
             onClick={() => setYearly(false)}
             className={`rounded-full px-5 py-2 text-sm font-semibold transition ${!yearly ? 'bg-indigo-600 text-white dark:bg-yellow-400 dark:text-slate-950 shadow-md' : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'}`}
@@ -111,7 +111,7 @@ export default function Pricing() {
             className={`relative flex flex-col gap-6 rounded-[28px] p-8 backdrop-blur-md transition-colors duration-300 ${
               plan.highlighted
                 ? 'bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-900 dark:from-fuchsia-600/30 dark:to-cyan-500/30 text-white shadow-[0_32px_80px_rgba(79,70,229,0.25)] dark:shadow-2xl border border-transparent dark:border-white/20'
-                : 'border border-slate-200/80 dark:border-white/10 bg-white/90 dark:bg-slate-900/40 shadow-[0_24px_60px_rgba(15,23,42,0.08)] dark:shadow-xl'
+                : 'border border-indigo-200 dark:border-white/10 bg-indigo-50/70 dark:bg-slate-900/40 shadow-[0_24px_60px_rgba(79,70,229,0.08)] dark:shadow-xl'
             }`}
           >
             {plan.badge && (
@@ -131,7 +131,7 @@ export default function Pricing() {
                 <span className={`text-5xl font-semibold tabular-nums ${plan.highlighted ? 'text-white' : 'text-slate-950 dark:text-white'}`}>
                   ${yearly ? plan.price.yearly : plan.price.monthly}
                 </span>
-                <span className={`mb-2 text-sm ${plan.highlighted ? 'text-indigo-200 dark:text-slate-300' : 'text-slate-600 dark:text-slate-400'}`}>/mo</span>
+                <span className={`mb-2 text-sm ${plan.highlighted ? 'text-indigo-200 dark:text-slate-300' : 'text-slate-700 dark:text-slate-400'}`}>/mo</span>
               </div>
               <p className={`mt-2 text-sm leading-6 ${plan.highlighted ? 'text-indigo-100 dark:text-slate-200' : 'text-slate-700 dark:text-slate-300'}`}>
                 {plan.description}
@@ -154,7 +154,7 @@ export default function Pricing() {
                 {plan.highlighted ? (
                   <button
                     type="button"
-                    className="w-full rounded-full bg-white dark:bg-yellow-400 py-3.5 text-sm font-bold text-indigo-900 dark:text-slate-950 shadow-xl transition hover:-translate-y-0.5 hover:bg-slate-50 dark:hover:bg-yellow-300"
+                    className="w-full rounded-full bg-indigo-50/80 dark:bg-yellow-400 py-3.5 text-sm font-bold text-indigo-900 dark:text-slate-950 shadow-xl transition hover:-translate-y-0.5 hover:bg-slate-50 dark:hover:bg-yellow-300"
                   >
                     {plan.cta}
                   </button>

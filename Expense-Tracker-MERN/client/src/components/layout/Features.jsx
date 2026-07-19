@@ -84,7 +84,7 @@ export default function Features() {
               key={feature.title}
               variants={cardVariants}
               whileHover={{ y: -8, transition: { duration: 0.25 } }}
-              className="group relative flex h-full flex-col gap-5 overflow-hidden rounded-[28px] border border-slate-200/80 dark:border-white/10 bg-white dark:bg-slate-900/40 p-8 shadow-[0_24px_60px_rgba(15,23,42,0.08)] dark:shadow-2xl backdrop-blur-md transition-colors duration-300"
+              className="group relative flex h-full flex-col gap-5 overflow-hidden rounded-[28px] border border-indigo-200 dark:border-white/10 bg-indigo-50/80 dark:bg-slate-900/40 p-8 shadow-[0_24px_60px_rgba(79,70,229,0.08)] dark:shadow-2xl backdrop-blur-md transition-colors duration-300"
             >
               <span className="absolute right-5 top-5 rounded-full bg-slate-100 dark:bg-white/10 px-3 py-1 text-xs font-semibold text-slate-700 dark:text-white transition-colors">
                 {feature.tag}

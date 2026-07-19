@@ -32,16 +32,16 @@ export default function Navbar() {
         transition={{ duration: 0.65, ease: 'easeOut' }}
         className={`sticky top-4 z-30 mx-auto w-[min(1120px,calc(100%-1.5rem))] rounded-full border px-6 py-3 backdrop-blur-xl transition-all duration-300 ${
           scrolled
-            ? 'border-indigo-100/50 bg-white/80 dark:border-white/10 dark:bg-slate-900/80 shadow-[0_8px_32px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
-            : 'border-indigo-50 bg-white/50 dark:border-white/5 dark:bg-transparent'
+            ? 'border-indigo-100 bg-white/70 dark:border-white/10 dark:bg-slate-900/80 shadow-[0_8px_32px_rgba(79,70,229,0.1)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
+            : 'border-transparent bg-transparent'
         }`}
       >
         <div className="flex items-center gap-6">
           {/* Logo */}
-          <div className="flex items-center gap-3 text-slate-950 dark:text-white transition-colors">
+          <Link to="/" className="flex items-center gap-3 text-slate-950 dark:text-white transition-colors hover:opacity-80">
             <Sparkles size={20} className="text-indigo-600 dark:text-yellow-400" />
             <span className="text-lg font-bold tracking-tight">CoinKeeper LK</span>
-          </div>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden flex-1 items-center justify-center gap-8 text-sm font-medium text-slate-700 dark:text-slate-300 md:flex">
@@ -86,7 +86,7 @@ export default function Navbar() {
             <button
               id="navbar-mobile-toggle"
               type="button"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-indigo-200 bg-indigo-50/80 text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 transition-colors"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label="Toggle menu"
             >
@@ -104,7 +104,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-x-4 top-20 z-20 rounded-[28px] border border-slate-200 bg-white p-6 shadow-xl dark:border-white/10 dark:bg-slate-900/95 dark:shadow-[0_32px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl md:hidden"
+            className="fixed inset-x-4 top-20 z-20 rounded-[28px] border border-indigo-200 bg-indigo-50/80 p-6 shadow-xl dark:border-white/10 dark:bg-slate-900/95 dark:shadow-[0_32px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl md:hidden"
           >
             <nav className="flex flex-col gap-1">
               {navItems.map((item) => (

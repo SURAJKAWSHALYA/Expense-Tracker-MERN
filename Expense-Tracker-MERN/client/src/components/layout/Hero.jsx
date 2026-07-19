@@ -71,18 +71,18 @@ export default function Hero() {
       >
         {/* Glows */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[300px] h-[400px] bg-indigo-200/50 dark:bg-fuchsia-600/30 blur-[80px] rounded-full dark:mix-blend-screen animate-pulse" />
-          <div className="absolute w-[200px] h-[300px] bg-purple-200/50 dark:bg-cyan-500/30 blur-[60px] rounded-full dark:mix-blend-screen translate-x-12 translate-y-12" />
+          <div className="w-[400px] h-[500px] bg-indigo-500/25 dark:bg-fuchsia-600/30 blur-[100px] rounded-full mix-blend-multiply dark:mix-blend-screen animate-pulse" />
+          <div className="absolute w-[300px] h-[400px] bg-sky-400/30 dark:bg-cyan-500/30 blur-[80px] rounded-full mix-blend-multiply dark:mix-blend-screen translate-x-12 translate-y-12" />
         </div>
 
         {/* Card 1: Total Balance */}
         <motion.div
           animate={floatAnimation1}
-          className="absolute z-30 w-72 rounded-[24px] border border-white/80 dark:border-white/10 bg-white/90 dark:bg-slate-900/60 p-6 shadow-2xl dark:shadow-2xl backdrop-blur-md transition-colors"
+          className="absolute z-30 w-64 sm:w-72 rounded-[24px] border border-indigo-200 dark:border-white/10 bg-indigo-50/80 dark:bg-slate-900/60 p-5 sm:p-6 shadow-[0_20px_50px_rgba(79,70,229,0.2)] dark:shadow-2xl backdrop-blur-xl transition-colors"
           style={{ transform: 'rotate(-4deg)' }}
         >
-          <p className="text-sm font-medium text-slate-600 dark:text-amber-500/90 tracking-wide">Total Balance</p>
-          <p className="mt-2 text-3xl font-bold text-slate-950 dark:text-white tracking-tight">1,125,000 <span className="text-lg text-slate-500 dark:text-slate-400 font-normal">LKR</span></p>
+          <p className="text-sm font-medium text-slate-700 dark:text-amber-500/90 tracking-wide">Total Balance</p>
+          <p className="mt-2 text-3xl font-bold text-slate-950 dark:text-white tracking-tight">1,125,000 <span className="text-lg text-slate-400 font-normal">LKR</span></p>
           <div className="mt-5 flex gap-3">
             <button className="flex-1 flex justify-center items-center rounded-xl bg-slate-100 dark:bg-white/10 py-2.5 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/20 transition border border-transparent dark:border-white/5">
               <Activity size={18} />
@@ -96,7 +96,7 @@ export default function Hero() {
         {/* Card 2: Accounts */}
         <motion.div
           animate={floatAnimation2}
-          className="absolute left-0 top-10 z-20 w-64 -translate-x-12 -translate-y-8 rounded-[20px] border border-white/80 dark:border-white/10 bg-white/95 dark:bg-slate-800/80 p-5 shadow-2xl backdrop-blur-xl transition-colors"
+          className="absolute left-2 sm:left-0 top-6 sm:top-10 z-20 w-56 sm:w-64 sm:-translate-x-12 sm:-translate-y-8 rounded-[20px] border border-indigo-200 dark:border-white/10 bg-indigo-50/85 dark:bg-slate-800/80 p-4 sm:p-5 shadow-[0_20px_40px_rgba(79,70,229,0.15)] dark:shadow-2xl backdrop-blur-xl transition-colors"
           style={{ transform: 'rotate(-12deg) scale(0.9)' }}
         >
           <div className="flex justify-between items-center mb-4">
@@ -107,14 +107,14 @@ export default function Hero() {
             <div className="flex justify-between items-end border-b border-slate-100 dark:border-white/10 pb-3">
               <div>
                 <p className="text-xs text-slate-950 dark:text-white">Commercial Bank</p>
-                <p className="text-[10px] text-slate-600 dark:text-slate-400">LKR - 40285</p>
+                <p className="text-[10px] text-slate-700 dark:text-slate-400">LKR - 40285</p>
               </div>
               <p className="text-sm font-semibold text-slate-950 dark:text-white">72,839.00</p>
             </div>
             <div className="flex justify-between items-end">
               <div>
                 <p className="text-xs text-slate-950 dark:text-white">HNB</p>
-                <p className="text-[10px] text-slate-600 dark:text-slate-400">LKR - 0024</p>
+                <p className="text-[10px] text-slate-700 dark:text-slate-400">LKR - 0024</p>
               </div>
               <p className="text-sm font-semibold text-slate-950 dark:text-white">15,235.50</p>
             </div>
@@ -124,11 +124,11 @@ export default function Hero() {
         {/* Card 3: Company Balance */}
         <motion.div
           animate={floatAnimation3}
-          className="absolute right-0 bottom-10 z-20 w-64 translate-x-12 translate-y-12 rounded-[20px] border border-white/80 dark:border-white/10 bg-white/95 dark:bg-slate-900/80 p-5 shadow-2xl backdrop-blur-xl transition-colors"
+          className="absolute right-2 sm:right-0 bottom-6 sm:bottom-10 z-20 w-56 sm:w-64 sm:translate-x-12 sm:translate-y-12 rounded-[20px] border border-indigo-200 dark:border-white/10 bg-indigo-50/85 dark:bg-slate-900/80 p-4 sm:p-5 shadow-[0_20px_40px_rgba(79,70,229,0.2)] dark:shadow-2xl backdrop-blur-xl transition-colors"
           style={{ transform: 'rotate(8deg)' }}
         >
-          <p className="text-sm font-medium text-slate-600 dark:text-pink-400/90 tracking-wide">Company Balance</p>
-          <p className="mt-2 text-2xl font-bold text-slate-950 dark:text-white tracking-tight">750,000 <span className="text-sm text-slate-500 dark:text-slate-400 font-normal">LKR</span></p>
+          <p className="text-sm font-medium text-slate-700 dark:text-pink-400/90 tracking-wide">Company Balance</p>
+          <p className="mt-2 text-2xl font-bold text-slate-950 dark:text-white tracking-tight">750,000 <span className="text-sm text-slate-400 font-normal">LKR</span></p>
           <div className="mt-4 flex gap-2">
             <button className="flex-1 flex justify-center items-center rounded-xl bg-slate-100 dark:bg-white/5 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/10 transition">
               <Activity size={16} />
@@ -143,13 +143,13 @@ export default function Hero() {
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.6 }}
-          className="absolute bottom-4 left-1/2 -translate-x-1/2 z-0 w-60 rounded-[20px] bg-slate-200/50 dark:bg-white/5 p-4 backdrop-blur-sm border border-white/50 dark:border-white/5 transition-colors"
+          className="absolute bottom-10 sm:bottom-4 left-1/2 -translate-x-1/2 z-0 w-48 sm:w-60 rounded-[20px] bg-slate-200/50 dark:bg-white/5 p-4 backdrop-blur-sm border border-white/50 dark:border-white/5 transition-colors"
           style={{ transform: 'rotate(-15deg) scale(0.85) translate(-20px, 40px)' }}
         >
            <div className="space-y-2 opacity-50">
-             <div className="h-6 w-full rounded-md bg-white dark:bg-white/10"></div>
-             <div className="h-6 w-full rounded-md bg-white dark:bg-white/10"></div>
-             <div className="h-6 w-3/4 rounded-md bg-white dark:bg-white/10"></div>
+             <div className="h-6 w-full rounded-md bg-indigo-50/80 dark:bg-white/10"></div>
+             <div className="h-6 w-full rounded-md bg-indigo-50/80 dark:bg-white/10"></div>
+             <div className="h-6 w-3/4 rounded-md bg-indigo-50/80 dark:bg-white/10"></div>
            </div>
         </motion.div>
       </motion.div>

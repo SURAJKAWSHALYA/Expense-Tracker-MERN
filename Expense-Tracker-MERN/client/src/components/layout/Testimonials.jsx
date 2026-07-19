@@ -67,7 +67,7 @@ export default function Testimonials() {
             key={t.name}
             variants={cardVariants}
             whileHover={{ y: -6, transition: { duration: 0.25 } }}
-            className="flex flex-col gap-6 rounded-[28px] border border-white/80 dark:border-white/10 bg-white/90 dark:bg-slate-900/40 p-8 shadow-[0_24px_60px_rgba(15,23,42,0.08)] dark:shadow-2xl backdrop-blur-md transition-colors duration-300"
+            className="flex flex-col gap-6 rounded-[28px] border border-indigo-200 dark:border-white/10 bg-indigo-50/70 dark:bg-slate-900/40 p-8 shadow-[0_24px_60px_rgba(79,70,229,0.08)] dark:shadow-2xl backdrop-blur-md transition-colors duration-300"
           >
             <div className="flex gap-0.5">
               {Array.from({ length: t.rating }).map((_, i) => (
@@ -85,7 +85,7 @@ export default function Testimonials() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-slate-950 dark:text-white transition-colors">{t.name}</p>
-                <p className="text-xs text-slate-600 dark:text-slate-400 transition-colors">{t.role}</p>
+                <p className="text-xs text-slate-700 dark:text-slate-400 transition-colors">{t.role}</p>
               </div>
             </div>
           </motion.div>

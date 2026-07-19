@@ -1,5 +1,6 @@
 import { Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 import womanCards from '../assets/images/woman-cards.png';
 import manCard from '../assets/images/man-card.png';
@@ -20,9 +21,13 @@ export default function AuthLayout({ children, title, subtitle }) {
   };
 
   return (
-    <div className="flex min-h-screen bg-surface dark:bg-[#020617] transition-colors duration-300">
-      {/* Left side - Branding (Hidden on mobile) */}
-      <div className="hidden w-1/2 flex-col justify-between overflow-hidden relative lg:flex p-12 bg-indigo-50/50 dark:bg-transparent">
+    <div className="flex min-h-screen items-center justify-center bg-slate-50 dark:bg-[#020617] p-4 sm:p-8 transition-colors duration-300">
+      
+      {/* The Full Page Box */}
+      <div className="flex w-full max-w-[92vw] xl:max-w-[1400px] 2xl:max-w-[1600px] max-h-[95vh] h-auto md:h-[90vh] md:max-h-[800px] overflow-hidden rounded-[2.5rem] bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-white/10 shadow-2xl dark:shadow-[0_0_60px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+        
+        {/* Left side - Branding (Hidden on mobile) */}
+        <div className="hidden w-1/2 flex-col justify-between relative lg:flex p-10 xl:p-12 bg-indigo-50/50 dark:bg-black/20 border-r border-slate-100 dark:border-white/5">
         {/* Background Gradients */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           {/* Light mode blobs */}
@@ -34,12 +39,12 @@ export default function AuthLayout({ children, title, subtitle }) {
           <div className="absolute -right-[10%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-cyan-500/20 blur-[80px] mix-blend-screen hidden dark:block" />
         </div>
 
-        <div className="relative z-10 flex items-center gap-3 text-slate-950 dark:text-white">
+        <Link to="/" className="relative z-10 flex items-center gap-3 text-slate-950 dark:text-white hover:opacity-80 transition-opacity w-max">
           <Sparkles size={24} className="text-indigo-600 dark:text-yellow-400" />
           <span className="text-2xl font-bold tracking-tight">CoinKeeper LK</span>
-        </div>
+        </Link>
 
-        <div className="relative z-10 w-full flex-1 flex items-center justify-center py-10">
+        <div className="relative z-10 w-full flex-1 flex items-center justify-center py-4">
           <div className="relative w-full max-w-[450px] aspect-square">
             {/* Animated Photo Collage */}
             
@@ -75,26 +80,28 @@ export default function AuthLayout({ children, title, subtitle }) {
           </div>
         </div>
 
-        <div className="relative z-10 text-sm text-slate-600 dark:text-slate-600">
+        <div className="relative z-10 text-sm text-slate-700 dark:text-slate-700">
           © {new Date().getFullYear()} CoinKeeper LK. All rights reserved.
         </div>
       </div>
 
       {/* Right side - Form */}
-      <div className="flex w-full flex-col justify-center px-6 py-12 lg:w-1/2 lg:px-12 xl:px-24 bg-white dark:bg-slate-950/50 dark:backdrop-blur-3xl dark:border-l dark:border-white/5 transition-colors duration-300">
-        <div className="mx-auto w-full max-w-md">
+      <div className="flex w-full flex-col justify-start sm:justify-center px-6 py-6 sm:px-10 lg:w-1/2 xl:px-16 2xl:px-24 relative z-10 overflow-y-auto overflow-x-hidden custom-scrollbar">
+        
+        <div className="mx-auto w-full max-w-[420px] my-auto sm:my-0">
+          
           {/* Mobile Header (Hidden on Desktop) */}
-          <div className="mb-10 flex items-center gap-3 lg:hidden text-slate-950 dark:text-white">
-            <Sparkles size={24} className="text-indigo-600 dark:text-yellow-400" />
+          <Link to="/" className="mb-8 flex items-center justify-center gap-3 lg:hidden text-slate-950 dark:text-white hover:opacity-80 transition-opacity w-full">
+            <Sparkles size={28} className="text-indigo-600 dark:text-yellow-400" />
             <span className="text-2xl font-bold tracking-tight">CoinKeeper LK</span>
-          </div>
+          </Link>
 
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <div className="mb-8">
+            <div className="mb-6 text-center sm:text-left">
               <h2 className="text-3xl font-bold tracking-tight text-slate-950 dark:text-white transition-colors">
                 {title}
               </h2>
@@ -109,6 +116,8 @@ export default function AuthLayout({ children, title, subtitle }) {
           </motion.div>
         </div>
       </div>
+      
+      </div> {/* End Full Page Box */}
     </div>
   );
 }

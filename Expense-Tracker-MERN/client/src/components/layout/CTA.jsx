@@ -33,7 +33,7 @@ export default function CTA() {
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Link to="/register">
-                <Button id="cta-get-started" type="button" className="gap-2 bg-white text-indigo-900 hover:bg-slate-100 dark:bg-yellow-400 dark:text-slate-950 dark:hover:bg-yellow-300 rounded-full px-8 py-3.5 text-base font-bold shadow-lg shadow-white/20 dark:shadow-yellow-400/20 transition-colors">
+                <Button id="cta-get-started" type="button" className="gap-2 bg-indigo-50/80 text-indigo-900 hover:bg-slate-100 dark:bg-yellow-400 dark:text-slate-950 dark:hover:bg-yellow-300 rounded-full px-8 py-3.5 text-base font-bold shadow-lg shadow-white/20 dark:shadow-yellow-400/20 transition-colors">
                   Get Started Free
                   <ArrowRight size={16} />
                 </Button>
